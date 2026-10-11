@@ -7,15 +7,16 @@ const App = () => {
   const [toggle, setToggle] = useState(true); // 1. create useState for Toggle.
   // console.log(toggle); // 4. print to check chaning values.
 
-  return (
+  // const [users, setUsers] = useState([]) // 1. create useState for creating users.
+    return (
     <div className="w-full min-h-screen bg-zinc-900 flex flex-col gap-5">
       <Navbar setToggle={setToggle} />
       {toggle ? (
         <div className="flexCards flex flex-wrap gap-5">
-          <Card />
+          <Card/>
         </div>
       ) : (
-        <Form />
+        <Form/>
       )}
     </div>
   );
