@@ -7,9 +7,12 @@ const App = () => {
   const [toggle, setToggle] = useState(true); // 1. create useState for Toggle.
   // console.log(toggle); // 4. print to check chaning values.
 
-  const [users, setUsers] = useState([]); // 1. create useState for users
+  const [users, setUsers] = useState([]); // 1. create useState for creating users
 
-  // const [users, setUsers] = useState([]) // 1. create useState for creating users.
+  const deleteUser = (id) =>{ // 1. import nanoid
+    const newUsers = users.filter((user)=>{user.id !== id}) // 3. filtering user 
+    setUsers(newUsers) // set new user
+  }
   return (
     <div className="w-full min-h-screen bg-zinc-900 flex flex-col gap-5">
       <Navbar setToggle={setToggle} />
@@ -18,7 +21,7 @@ const App = () => {
           {
             // 4. Card per map laga diya taaki new card bhi show ho.
             users.map((elem) => {
-             return <Card users={elem} />; // 5. elem per props drilling ki.
+             return <Card users={elem} setToggle={setToggle} deleteUser={deleteUser} />; // 5. elem per props drilling ki. // 2. deleterUser ko propDrilling hui.
             })
           }
         </div>

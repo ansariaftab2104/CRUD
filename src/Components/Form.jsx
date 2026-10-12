@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -14,7 +15,7 @@ const Form = ({setUsers, setToggle}) => { // 2. Destucture setUsers
   const formSubmit = (data) => {
     reset(); // 5. reaset()
     console.log(data);
-    setUsers((prev)=>[...prev, data]) // 3. formSubmit per setSubmit chalana 
+    setUsers((prev)=>[...prev, {...data, id:nanoid()}]) // 3. formSubmit per setSubmit chalana // 2. making data and id into object.
     setToggle((prev)=>!prev) // 9. setToggle for changes.
   }; // 3. create formSubmit for clean code
 
