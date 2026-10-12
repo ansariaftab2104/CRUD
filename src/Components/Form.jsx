@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const Form = () => {
+const Form = ({setUsers, setToggle}) => { // 2. Destucture setUsers
   const {
     register,
     reset,
@@ -14,6 +14,8 @@ const Form = () => {
   const formSubmit = (data) => {
     reset(); // 5. reaset()
     console.log(data);
+    setUsers((prev)=>[...prev, data]) // 3. formSubmit per setSubmit chalana 
+    setToggle((prev)=>!prev) // 9. setToggle for changes.
   }; // 3. create formSubmit for clean code
 
   return (
@@ -159,3 +161,5 @@ export default Form;
 // // 10.  useForm(
 //     {mode: "onChange"}
 //   ); // Giving errors on same time
+
+// Form Validation Complete.
